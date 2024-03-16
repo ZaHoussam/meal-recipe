@@ -131,7 +131,6 @@ $full-100: 100%;
         height: 2px;
       }
       &:hover::before,
-      ,
       &.router-link-exact-active.router-link-active::before {
         width: $full-100;
       }
