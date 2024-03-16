@@ -11,7 +11,7 @@ header.header
           .bars#bar2
           .bars#bar3
     ul.links.d-flex.justify-content-between.align-items-center.mb-0.ps-0
-      li(v-for="(link,i) in links" :key="i").text-center  
+      li(v-for="link in links" :key="link.name").text-center  
           router-link.pt-4.pb-4(:to="link.path") {{ link.name }}
 </template>
 
@@ -31,7 +31,6 @@ export default {
         break;
       }
     }
-    console.log(this.links);
   },
 };
 </script>
@@ -117,7 +116,8 @@ $full-100: 100%;
       font-size: 22px;
       transition: 0.4s;
       position: relative;
-      &:hover {
+      &:hover,
+      &.router-link-exact-active.router-link-active {
         color: $main-color;
       }
       &::before {
@@ -130,7 +130,9 @@ $full-100: 100%;
         width: 0;
         height: 2px;
       }
-      &:hover::before {
+      &:hover::before,
+      ,
+      &.router-link-exact-active.router-link-active::before {
         width: $full-100;
       }
     }
